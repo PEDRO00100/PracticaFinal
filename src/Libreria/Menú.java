@@ -51,11 +51,9 @@ public class Menú extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(255, 255, 255));
         pnlMenu.setPreferredSize(new java.awt.Dimension(1200, 700));
-        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Sylfaen", 0, 36)); // NOI18N
         lblTitulo.setText("BIENVENIDO A LIBROS-UPIITA");
-        pnlMenu.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 18, 560, -1));
 
         btnAgregara.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
         btnAgregara.setText("Agregar Libros");
@@ -65,27 +63,65 @@ public class Menú extends javax.swing.JFrame {
                 btnAgregaraActionPerformed(evt);
             }
         });
-        pnlMenu.add(btnAgregara, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 516, -1, -1));
 
         btnVer.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
         btnVer.setText("Ver Libros");
         btnVer.setPreferredSize(new java.awt.Dimension(170, 40));
-        pnlMenu.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 516, -1, -1));
 
         btnVer1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
         btnVer1.setText("Costos");
         btnVer1.setPreferredSize(new java.awt.Dimension(170, 40));
-        pnlMenu.add(btnVer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 516, -1, -1));
-        pnlMenu.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 131, 349, 300));
+
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(413, 413, 413)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addComponent(btnAgregara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140)
+                .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137)
+                .addComponent(btnVer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo)
+                .addGap(65, 65, 65)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         jmAtajos.setText("Atajos");
 
         miAgregarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miAgregarLibro.setText("Agregar libro impreso");
+        miAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickAgregarLibro(evt);
+            }
+        });
         jmAtajos.add(miAgregarLibro);
 
         miAgregarLibroDigital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miAgregarLibroDigital.setText("Agregar libro digital");
+        miAgregarLibroDigital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickAgregarLibroDigital(evt);
+            }
+        });
         jmAtajos.add(miAgregarLibroDigital);
 
         miVerLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -151,6 +187,22 @@ public class Menú extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregaraActionPerformed
 
+    private void clickAgregarLibro(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickAgregarLibro
+                agregarLibro imoreso = new agregarLibro();
+                imoreso.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(imoreso);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_clickAgregarLibro
+
+    private void clickAgregarLibroDigital(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickAgregarLibroDigital
+                agregarLibroDigital digital = new agregarLibroDigital();
+                digital.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(digital);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_clickAgregarLibroDigital
+                
     /**
      * @param args the command line arguments
      */
