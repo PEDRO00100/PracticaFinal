@@ -33,7 +33,7 @@ public class Menú extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         btnAgregara = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
-        btnVer1 = new javax.swing.JButton();
+        btnCosto = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         mbMenu = new javax.swing.JMenuBar();
         jmAtajos = new javax.swing.JMenu();
@@ -67,10 +67,20 @@ public class Menú extends javax.swing.JFrame {
         btnVer.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
         btnVer.setText("Ver Libros");
         btnVer.setPreferredSize(new java.awt.Dimension(170, 40));
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
 
-        btnVer1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
-        btnVer1.setText("Costos");
-        btnVer1.setPreferredSize(new java.awt.Dimension(170, 40));
+        btnCosto.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        btnCosto.setText("Costos");
+        btnCosto.setPreferredSize(new java.awt.Dimension(170, 40));
+        btnCosto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCostoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
@@ -88,7 +98,7 @@ public class Menú extends javax.swing.JFrame {
                 .addGap(140, 140, 140)
                 .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137)
-                .addComponent(btnVer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +111,7 @@ public class Menú extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgregara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jmAtajos.setText("Atajos");
@@ -126,18 +136,38 @@ public class Menú extends javax.swing.JFrame {
 
         miVerLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miVerLibro.setText("Ver libros impresos");
+        miVerLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickVerLibro(evt);
+            }
+        });
         jmAtajos.add(miVerLibro);
 
         miVerLibroDigital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miVerLibroDigital.setText("Ver libros digitales");
+        miVerLibroDigital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickVerLibroDigital(evt);
+            }
+        });
         jmAtajos.add(miVerLibroDigital);
 
         miTotal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miTotal.setText("Total de costos");
+        miTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miTotalActionPerformed(evt);
+            }
+        });
         jmAtajos.add(miTotal);
 
         miRegalias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miRegalias.setText("Regalias");
+        miRegalias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRegaliasActionPerformed(evt);
+            }
+        });
         jmAtajos.add(miRegalias);
 
         mbMenu.add(jmAtajos);
@@ -188,10 +218,10 @@ public class Menú extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregaraActionPerformed
 
     private void clickAgregarLibro(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickAgregarLibro
-                agregarLibro imoreso = new agregarLibro();
-                imoreso.setBounds(pnlMenu.getBounds());
+                agregarLibro impreso = new agregarLibro();
+                impreso.setBounds(pnlMenu.getBounds());
                 pnlMenu.removeAll();
-                pnlMenu.add(imoreso);
+                pnlMenu.add(impreso);
                 pnlMenu.updateUI();
     }//GEN-LAST:event_clickAgregarLibro
 
@@ -202,6 +232,70 @@ public class Menú extends javax.swing.JFrame {
                 pnlMenu.add(digital);
                 pnlMenu.updateUI();
     }//GEN-LAST:event_clickAgregarLibroDigital
+
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        int x = JOptionPane.showInternalOptionDialog(pnlMenu,"Por favor seleccione el tipo de libro","Agregar Libros",0,3,null,opcion,"");
+        System.out.println(x);
+        switch(x){
+            case 0://impreso
+                verLibro impreso = new verLibro();
+                impreso.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(impreso);
+                pnlMenu.updateUI();
+                break;
+            case 1://digital
+                verLibroDigital digital = new verLibroDigital();
+                digital.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(digital);
+                pnlMenu.updateUI();
+                break;
+            default:
+                JOptionPane.showMessageDialog(pnlMenu,"Algo salio mal","Error",3);
+                break;
+        }
+    }//GEN-LAST:event_btnVerActionPerformed
+
+    private void clickVerLibro(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickVerLibro
+                verLibro impreso = new verLibro();
+                impreso.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(impreso);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_clickVerLibro
+
+    private void clickVerLibroDigital(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickVerLibroDigital
+                verLibroDigital digital = new verLibroDigital();
+                digital.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(digital);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_clickVerLibroDigital
+
+    private void btnCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCostoActionPerformed
+                costo precio = new costo();
+                precio.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(precio);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_btnCostoActionPerformed
+
+    private void miTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miTotalActionPerformed
+                costo precio = new costo();
+                precio.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(precio);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_miTotalActionPerformed
+
+    private void miRegaliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRegaliasActionPerformed
+                regalia creditos = new regalia();
+                creditos.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(creditos);
+                pnlMenu.updateUI();
+    }//GEN-LAST:event_miRegaliasActionPerformed
                 
     /**
      * @param args the command line arguments
@@ -246,8 +340,8 @@ public void SetImageLabel(JLabel icon,String ruta){
 String [] opcion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregara;
+    private javax.swing.JButton btnCosto;
     private javax.swing.JButton btnVer;
-    private javax.swing.JButton btnVer1;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu jmAtajos;
     private javax.swing.JMenu jmEdit;
