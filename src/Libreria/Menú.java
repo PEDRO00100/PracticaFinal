@@ -1,12 +1,22 @@
 package Libreria;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 public class Menú extends javax.swing.JFrame {
 
     /**
      * Creates new form Menú
      */
     public Menú() {
+        opcion = new String [2];
         initComponents();
+        opcion[0] = "Impreso";
+        opcion[1] = "Digital";
+        SetImageLabel(lblLogo,"src/Imagenes/Logo.png");
     }
 
     /**
@@ -19,91 +29,127 @@ public class Menú extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem6 = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        pnlMenu = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        btnAgregara = new javax.swing.JButton();
+        btnVer = new javax.swing.JButton();
+        btnVer1 = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
+        mbMenu = new javax.swing.JMenuBar();
+        jmAtajos = new javax.swing.JMenu();
+        miAgregarLibro = new javax.swing.JMenuItem();
+        miAgregarLibroDigital = new javax.swing.JMenuItem();
+        miVerLibro = new javax.swing.JMenuItem();
+        miVerLibroDigital = new javax.swing.JMenuItem();
+        miTotal = new javax.swing.JMenuItem();
+        miRegalias = new javax.swing.JMenuItem();
+        jmEdit = new javax.swing.JMenu();
 
         jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        pnlMenu.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMenu.setPreferredSize(new java.awt.Dimension(1200, 700));
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenu1.setText("File");
+        lblTitulo.setFont(new java.awt.Font("Sylfaen", 0, 36)); // NOI18N
+        lblTitulo.setText("BIENVENIDO A LIBROS-UPIITA");
+        pnlMenu.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 18, 560, -1));
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Agregar libro impreso");
-        jMenuItem1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                jMenuItem1ComponentMoved(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Agregar libro digital");
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Ver libros impresos");
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Ver libros digitales");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Total de costos");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregara.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        btnAgregara.setText("Agregar Libros");
+        btnAgregara.setPreferredSize(new java.awt.Dimension(170, 40));
+        btnAgregara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                btnAgregaraActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        pnlMenu.add(btnAgregara, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 516, -1, -1));
 
-        jMenuItem7.setText("Regalias");
-        jMenu1.add(jMenuItem7);
+        btnVer.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        btnVer.setText("Ver Libros");
+        btnVer.setPreferredSize(new java.awt.Dimension(170, 40));
+        pnlMenu.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 516, -1, -1));
 
-        jMenuBar1.add(jMenu1);
+        btnVer1.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        btnVer1.setText("Costos");
+        btnVer1.setPreferredSize(new java.awt.Dimension(170, 40));
+        pnlMenu.add(btnVer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 516, -1, -1));
+        pnlMenu.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 131, 349, 300));
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jmAtajos.setText("Atajos");
 
-        setJMenuBar(jMenuBar1);
+        miAgregarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miAgregarLibro.setText("Agregar libro impreso");
+        jmAtajos.add(miAgregarLibro);
+
+        miAgregarLibroDigital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miAgregarLibroDigital.setText("Agregar libro digital");
+        jmAtajos.add(miAgregarLibroDigital);
+
+        miVerLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miVerLibro.setText("Ver libros impresos");
+        jmAtajos.add(miVerLibro);
+
+        miVerLibroDigital.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miVerLibroDigital.setText("Ver libros digitales");
+        jmAtajos.add(miVerLibroDigital);
+
+        miTotal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miTotal.setText("Total de costos");
+        jmAtajos.add(miTotal);
+
+        miRegalias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miRegalias.setText("Regalias");
+        jmAtajos.add(miRegalias);
+
+        mbMenu.add(jmAtajos);
+
+        jmEdit.setText("Edit");
+        mbMenu.add(jmEdit);
+
+        setJMenuBar(mbMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem1ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jMenuItem1ComponentMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ComponentMoved
+    private void btnAgregaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaraActionPerformed
+        int x = JOptionPane.showInternalOptionDialog(pnlMenu,"Por favor seleccione el tipo de libro","Agregar Libros",0,3,null,opcion,"");
+        System.out.println(x);
+        switch(x){
+            case 0://impreso
+                agregarLibro impreso = new agregarLibro();
+                impreso.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(impreso);
+                pnlMenu.updateUI();
+                break;
+            case 1://digital
+                agregarLibroDigital digital = new agregarLibroDigital();
+                digital.setBounds(pnlMenu.getBounds());
+                pnlMenu.removeAll();
+                pnlMenu.add(digital);
+                pnlMenu.updateUI();
+                break;
+            default:
+                JOptionPane.showMessageDialog(pnlMenu,"Algo salio mal","Error",3);
+                break;
+        }
+    }//GEN-LAST:event_btnAgregaraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,18 +185,29 @@ public class Menú extends javax.swing.JFrame {
             }
         });
     }
-
+public void SetImageLabel(JLabel icon,String ruta){
+    ImageIcon img = new ImageIcon(ruta);
+    Icon ico = new ImageIcon(img.getImage().getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_DEFAULT));
+    icon.setIcon(ico);
+    this.repaint();
+}
+String [] opcion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JButton btnAgregara;
+    private javax.swing.JButton btnVer;
+    private javax.swing.JButton btnVer1;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu jmAtajos;
+    private javax.swing.JMenu jmEdit;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JMenuBar mbMenu;
+    private javax.swing.JMenuItem miAgregarLibro;
+    private javax.swing.JMenuItem miAgregarLibroDigital;
+    private javax.swing.JMenuItem miRegalias;
+    private javax.swing.JMenuItem miTotal;
+    private javax.swing.JMenuItem miVerLibro;
+    private javax.swing.JMenuItem miVerLibroDigital;
+    protected javax.swing.JPanel pnlMenu;
     // End of variables declaration//GEN-END:variables
 }
