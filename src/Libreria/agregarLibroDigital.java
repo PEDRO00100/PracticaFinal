@@ -27,7 +27,7 @@ public class agregarLibroDigital extends javax.swing.JPanel {
     private void initComponents() {
 
         pnlAgregarLibroDigital = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1200, 700));
@@ -35,10 +35,10 @@ public class agregarLibroDigital extends javax.swing.JPanel {
         pnlAgregarLibroDigital.setBackground(new java.awt.Color(153, 255, 204));
         pnlAgregarLibroDigital.setPreferredSize(new java.awt.Dimension(1200, 700));
 
-        jButton1.setText("Regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -48,14 +48,14 @@ public class agregarLibroDigital extends javax.swing.JPanel {
             pnlAgregarLibroDigitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgregarLibroDigitalLayout.createSequentialGroup()
                 .addContainerGap(1119, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnRegresar)
                 .addContainerGap())
         );
         pnlAgregarLibroDigitalLayout.setVerticalGroup(
             pnlAgregarLibroDigitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAgregarLibroDigitalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnRegresar)
                 .addContainerGap(672, Short.MAX_VALUE))
         );
 
@@ -73,17 +73,17 @@ public class agregarLibroDigital extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
                 Menú menu = new Menú();
                 menu.pnlMenu.setBounds(this.getBounds());
                 this.removeAll();
                 this.add(menu.pnlMenu);
                 this.updateUI();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JPanel pnlAgregarLibroDigital;
     // End of variables declaration//GEN-END:variables
 }
