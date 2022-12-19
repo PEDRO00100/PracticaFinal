@@ -194,7 +194,7 @@ public class Menú extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaraActionPerformed
-        int x = JOptionPane.showInternalOptionDialog(pnlMenu,"Por favor seleccione el tipo de libro","Agregar Libros",0,3,null,opcion,"");
+        int x = JOptionPane.showInternalOptionDialog(null,"Por favor seleccione el tipo de libro","Agregar Libros",0,3,null,opcion,"");
         switch(x){
             case 0://impreso
                 agregarLibro impreso = new agregarLibro();
